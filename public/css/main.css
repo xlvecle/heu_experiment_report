@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+body,html {
+	
+	padding-top: 30px;
+	margin: 0;
+	height: 95%;
+}
+.container {
+	min-height: 100%;
+	margin-bottom: -60px;
+}
+.footer, .footer_push {
+	height: 60px;
+}
+.footer {
+	
+	width: 100%;
+	padding-top: 15px;
+	bottom: 0;
+	/*background-color: #f5f5f5;*/
+}
+
+table form { margin: 0 6px; }
+table .btn { margin-right: 4px; }

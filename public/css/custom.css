@@ -1,0 +1,23 @@
+.container {
+	max-width: 830px;
+}
+.jumbotron {
+	text-align: center;
+}
+.motto {
+	padding: 10px;
+	margin-bottom: 30px;
+}
+.header h3 {
+	text-align: left;
+}
+.title {
+	height: 100px;
+	text-align: left;
+}
+.first_title {
+	padding-bottom: 19px;
+	border-bottom: 1px solid #e5e5e5;
+	width: 300px;
+	margin-left: 207px;
+}
