@@ -7,11 +7,12 @@ class PageController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index($id)
 	{
 		//return \View::make('main.page')->with('subject', Subject::find($subject));
-		$users = DB::table('sybg_subject')->select('title')->get();
-		echo $users[0]->title;
+		//$users = DB::table('sybg_subject')->select('title')->get();
+		//echo $users[0]->title;
+		return \View::make('main.page')->with('subject', Exp::where('name', '=', $id)->get());
 	}
 
 	/**
@@ -43,9 +44,9 @@ class PageController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($subject)
+	public function show($exp)
 	{
-		return \View::make('main.page')->with('subject', Subject::where('title', '=', $subject)->get());
+		return \View::make('main.page')->with('subject', Exp::where('name', '=', $exp)->get());
 	}
 
 	/**
