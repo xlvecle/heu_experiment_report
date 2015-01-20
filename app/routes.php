@@ -14,5 +14,6 @@
 Route::resource('/', 'MainController');
 Route::get('index', 'MainController@index');
 Route::get('{subject}', 'MainController@show');
+Route::get('{subject}/{exp}', 'PageController@show');
 Route::resource('pages', 'PageController');
 Route::get('test/{id}', 'PageController@index');

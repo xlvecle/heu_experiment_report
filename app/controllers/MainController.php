@@ -13,6 +13,6 @@ class MainController extends \BaseController {
 
 	public function show($subject)
 	{
-		return \View::make('main.page')->with('subject', Subject::where('title', '=', $subject)->get());
+		return \View::make('main.subject', array('subject' => Subject::where('title', '=', $subject)->firstOrFail(), 'exps' => Exp::where('subject', '=', $subject)->get()));
 	}
 }
