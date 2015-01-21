@@ -10,9 +10,7 @@
 		<div class="jumbotron">
 			<div class="header">
 				<ul class="nav nav-pills pull-right" role="tablist">
-					<li role="presentation"><a href="#">Home</a></li>
-					<li role="presentation"><a href="#">About</a></li>
-					<li role="presentation"><a href="#">Contact</a></li>
+					@include('main.layouts.navbar')
 				</ul>
 				<h3 class="text-muted"><a href="{{ URL::route('index')}}">哈工程实验报告</a></h3>
 			</div>

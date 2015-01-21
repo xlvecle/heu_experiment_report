@@ -11,7 +11,7 @@
 		<hr>
 		{{ $exp->info  }}
 		<br>
-		<p><a href="{{ URL::action('PageController@show', ['大物实验报告', '测试']) }}">{{ $exp->name }}</a></p>
+		<p><a href="{{ URL::action('PageController@show', [$subject->title, $exp->name]) }}">{{ $exp->name }}</a></p>
 		@endforeach
 
 	</div>
