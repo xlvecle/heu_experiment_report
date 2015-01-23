@@ -11,16 +11,30 @@
 |
 */
 
+App::missing(function(){
+  echo "string";; 
+}); 
+
 Route::resource('/', 'MainController');
 Route::get('index', 'MainController@index');
+Route::get('about', function ()
+{
+	return View::make('main.about');
+});
 
 Route::get('admin/logout', array('as' => 'admin.logout', 'uses' => 'AuthController@getLogout'));  
 Route::get('admin/login', array('as' => 'admin.login', 'uses' => 'AuthController@getLogin'));  
 Route::post('admin/login', array('as' => 'admin.login.post', 'uses' => 'AuthController@postLogin'));
 Route::post('admin/login', array('as' => 'admin.subject.store', 'uses' => 'AuthController@postLogin'));
-Route::get('admin', 'AdminController@index');
-Route::resource('admin/subject', 'AdminController');
-Route::resource('admin/exp', 'ExpController');
+
+Route::group(array('prefix' => 'admin', 'before' => 'auth.admin'), function()  
+{
+	Route::get('', 'AdminController@index');
+	Route::post('', 'AdminController@store');
+    Route::resource('subject', 'SubjectController');
+	Route::resource('exp', 'ExpController');
+});
+
 
 Route::get('{subject}', 'MainController@show');
 Route::get('{subject}/{exp}', 'PageController@show');

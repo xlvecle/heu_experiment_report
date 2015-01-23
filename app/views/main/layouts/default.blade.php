@@ -12,7 +12,7 @@
 				<ul class="nav nav-pills pull-right" role="tablist">
 					@include('main.layouts.navbar')
 				</ul>
-				<h3 class="text-muted"><a href="{{ URL::route('index')}}">哈工程实验报告</a></h3>
+				<h3 class="text-muted"><a href="{{ URL::route('index')}}">{{ Cache::get('site_title') }}</a></h3>
 			</div>
 			<hr>
 			@yield('main')

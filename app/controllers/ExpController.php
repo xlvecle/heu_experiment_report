@@ -8,7 +8,7 @@ class ExpController extends \BaseController {
 	 */
 	public function index()
 	{
-		return \View::make('admin.index', array('subjects' => Subject::all(), 'exps' => Exp::all()));
+		return \View::make('admin.exp.index', array('exps' => Exp::all()));
 	}
 
 	public function create()

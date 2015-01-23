@@ -18,10 +18,8 @@ class AdminController extends \BaseController {
 
 	public function store()
 	{
-		$subject = new Subject;
-		$subject->title = Input::get('title');
-		$subject->info = Input::get('info');
-		$subject->save();
-		return Redirect::to('admin');
+		Cache::forever('site_title', Input::get('site_title'));
+		Cache::forever('motto_title', Input::get('motto_title'));
+		return \Redirect::to('admin');
 	}
 }

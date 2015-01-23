@@ -1,7 +1,7 @@
 @extends('main.layouts.default')
 @section('main')
       		<div class="motto">
-      			<h2 class="first_title">好好学习，天天向上</h2>
+      			<h2 class="first_title">{{ Cache::get('motto_title') }}</h2>
       			<p>写自己的实验报告，让别人说去吧。（鲁迅）</p>
       			<p>实验报告是人类进步的阶梯。（高尔基）</p>
       		</div>

@@ -1,50 +1,30 @@
-@extends('main.layouts.default')
+            @extends('main.layouts.default')
 
-@section('main')
+            @section('main')
+            <div class="config">
+                <a href="{{ URL::to('admin/subject') }}">学科管理</a>
+                <a href="{{ URL::to('admin/exp') }}">实验管理</a>
+            </div>
+            {{ Form::open(array('route', 'admin.config.store')) }}
+                <div class="row">
+                    <div class="span3">
+                        <div class="control-group">
+                            {{ Form::label('site_title', '站点title：') }}
+                            <div class="controls">
+                                {{ Form::text('site_title', Cache::get('site_title')) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span3">
+                        <div class="control-group">
+                            {{ Form::label('motto_title', 'motto_title：')}}
+                            <div class="controls">
+                                {{ Form::text('motto_title', Cache::get('motto_title')) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {{ Form::submit('确定', array('class'=>'btn btn-success')) }}
+            {{ Form::close()}}
 
-<a href="{{ URL::action('AdminController@create') }}" class="btn btn-success">新建</a>
-
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>Title</th>
-            <th>最后修改时间</th>
-            <th><i class="icon-cog"></i></th>
-        </tr>
-    </thead>
-@foreach ($subjects as $subject)
-	<tr class="">
-		<td>{{ $subject->title }}</td>
-		<td>{{ $subject->updated_at }}</td>
-		<td>
-			<a href="" class="btn btn-success btn-mini pull-left">编辑</a>
-            <button type="submit" href="" class="btn btn-danger btn-mini">删除</button>
-		</td>
-	</tr>
-@endforeach
-</table>
-<hr>
-<a href="{{ URL::action('ExpController@create') }}" class="btn btn-success">新建</a>
-
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>Title</th>
-            <th>最后修改时间</th>
-            <th><i class="icon-cog"></i></th>
-        </tr>
-    </thead>
-@foreach ($exps as $exp)
-    <tr class="">
-        <td>{{ $exp->name }}</td>
-        <td>{{ $exp->info }}</td>
-        <td>
-            <a href="" class="btn btn-success btn-mini pull-left">编辑</a>
-            <button type="submit" href="" class="btn btn-danger btn-mini">删除</button>
-        </td>
-    </tr>
-@endforeach
-</table>
-@stop
+            @stop
